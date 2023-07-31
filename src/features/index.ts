@@ -1,0 +1,1 @@
+export { zxingMultiFormatReader } from "./barcodeReader";
