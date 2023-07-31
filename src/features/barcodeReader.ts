@@ -1,6 +1,10 @@
 import { FormKitNode } from '@formkit/core';
 import { BrowserMultiFormatReader, DecodeHintType, BarcodeFormat } from '@zxing/library';
 
+const getFormatsHint = (formats: any) => new Map([
+  [DecodeHintType.POSSIBLE_FORMATS, formats ? formats : [BarcodeFormat.CODE_128]]
+]);
+
 export const zxingMultiFormatReader = (node: FormKitNode) => {
   if (node.props.type !== 'barcode') return;
 
@@ -8,9 +12,11 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
 
   if (!codeReader.isMediaDevicesSuported) return console.warn('Media Stream API is not supported in your device.');
 
-  codeReader.hints = new Map([
-    [DecodeHintType.POSSIBLE_FORMATS, node.props.formats ? node.props.formats : [BarcodeFormat.CODE_128]]
-  ]);
+  codeReader.hints = getFormatsHint(node.props.formats);
+
+  node.on('prop:formats', ({ payload }) => {
+    codeReader.hints = getFormatsHint(payload);
+  });
 
   node.on('created', () => {
     if (!node.context) return;
