@@ -30,11 +30,6 @@
   "scripts": {
     "build": "npx rimraf dist && rollup -c"
   },
-  "peerDependencies": {
-    "@formkit/core": "^0.17.3",
-    "@formkit/inputs": "^0.17.3",
-    "@formkit/utils": "^0.17.3"
-  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-typescript": "^11.1.2",
@@ -42,7 +37,10 @@
     "rollup": "^3.25.3",
     "tslib": "^2.6.0"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@formkit/core": "^0.17.3",
+    "@formkit/inputs": "^0.17.3",
+    "@formkit/utils": "^0.17.3",
     "@zxing/library": "^0.20.0"
   }
 }
