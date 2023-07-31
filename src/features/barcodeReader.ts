@@ -18,7 +18,12 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     node.context.handlers.openCamera = async () => {
       const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
 
-      codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res) => {
+      codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res, err) => {
+        if (err) {
+          node.setErrors(err.message);
+          dialog.close();
+        }
+
         if (res) {
           node.input(res.getText());
           dialog.close();
