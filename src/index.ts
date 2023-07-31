@@ -11,9 +11,10 @@ import {
   help,
   messages,
   message,
+  defaultIcon,
+  $attrs,
 } from '@formkit/inputs';
 import {
-  barcodeButton,
   barcodeIcon,
   dialog,
   video,
@@ -26,7 +27,10 @@ export const barcodeReader: FormKitTypeDefinition = {
   props: [
     'formats',
   ],
-  features: [zxingMultiFormatReader],
+  features: [
+    zxingMultiFormatReader,
+    defaultIcon('close', 'close')
+  ],
   schema: outer(
     wrapper(
       label('$label'),
@@ -34,12 +38,15 @@ export const barcodeReader: FormKitTypeDefinition = {
         icon('prefix', 'label'),
         prefix(),
         textInput(),
-        barcodeButton(barcodeIcon()),
+        barcodeIcon(),
         suffix(),
         icon('suffix')
       )
     ),
-    dialog(video()),
+    dialog(
+      $attrs({ onClick: '$handlers.closeCamera' }, icon('close')),
+      video()
+    ),
     help('$help'),
     messages(message('$message.value'))
   )

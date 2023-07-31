@@ -9,6 +9,7 @@ export const barcodeIcon = createSection('barcodeIcon', () => ({
   $el: 'svg',
   attrs: {
     viewBox: "0 0 50 50",
+    onClick: '$handlers.openCamera',
   },
   children: [
     {

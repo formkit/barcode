@@ -16,30 +16,22 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     if (!node.context) return;
 
     node.context.handlers.openCamera = async () => {
-      if (!node.props.id) return;
-
       const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
-      dialog.addEventListener('close', () => {
-        codeReader.reset();
-      });
-      dialog.showModal();
 
       codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res) => {
-        if (res) node.input(res.getText());
+        if (res) {
+          node.input(res.getText());
+          dialog.close();
+        }
       });
+
+      dialog.showModal();
     };
 
     node.context.handlers.closeCamera = (event: Event) => {
-      if (!node.props.id) return;
-
       const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
-      dialog.removeEventListener('close', () => {
-        codeReader.reset();
-      });
-
-      if ((event.target as HTMLElement).nodeName === 'DIALOG') {
-        dialog.close();
-      }
+      codeReader.reset();
+      dialog.close();
     };
   });
 
