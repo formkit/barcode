@@ -12,7 +12,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./assets/barcodeReader": "./dist/assets/barcodeReader.css"
   },
   "keywords": [
     "barcode",
@@ -28,12 +29,19 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npx rimraf dist && rollup -c"
+    "build:cleanup": "npx rimraf dist",
+    "build:js": "rollup -c",
+    "build:css": "postcss ./src/assets/barcodeReader.css --output ./dist/assets/barcodeReader.css --use autoprefixer postcss-nesting",
+    "build": "npm run build:cleanup && npm run build:js && npm run build:css"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/node": "^20.3.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "postcss-nesting": "^12.0.0",
     "rollup": "^3.25.3",
     "tslib": "^2.6.0"
   },
