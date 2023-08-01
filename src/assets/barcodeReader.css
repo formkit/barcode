@@ -7,12 +7,32 @@
   }
 }
 
-[data-type="barcode"] .formkit-video {
+[data-type="barcode"] {
+  & .formkit-dialog {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 20px;
+  }
+
   &.scanner-container {
     position: relative;
   }
 
-  & .overlay-element {
+  & .formkit-icon.formkit-close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3em;
+    height: 3em;
+
+    & svg {
+      max-height: 2em;
+      max-width: 2em;
+    }
+  }
+
+  & .overlay {
     position: absolute;
     inset: 0;
     background: rgba(30, 30, 30, 0.5);

@@ -5,30 +5,11 @@ import { createSection } from '@formkit/inputs';
  *
  * @public
  */
+
 export const video = createSection('video', () => ({
-  $el: 'div',
+  $el: 'video',
   attrs: {
-    class: '$classes.video + " scanner-container"',
-  },
-  children: [
-    {
-      $el: 'video',
-      attrs: {
-        poster: 'data:image/gif, AAAA',
-        id: '$id + "-video"',
-      }
-    },
-    {
-      $el: 'div',
-      attrs: {
-        class: 'overlay-element'
-      }
-    },
-    {
-      $el: 'div',
-      attrs: {
-        class: 'laser'
-      }
-    }
-  ]
+    poster: 'data:image/gif, AAAA',
+    id: '$id + "-video"',
+  }
 }));

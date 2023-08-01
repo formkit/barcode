@@ -17,6 +17,9 @@ import {
 import {
   barcodeIcon,
   dialog,
+  scannerContainer,
+  overlay,
+  laser,
   video,
 } from './sections';
 import { zxingMultiFormatReader } from './features/barcodeReader';
@@ -43,10 +46,12 @@ export const barcode: FormKitTypeDefinition = {
         icon('suffix')
       )
     ),
-    dialog(
+    dialog(scannerContainer(
+      video(),
       $attrs({ onClick: '$handlers.closeCamera' }, icon('close')),
-      video()
-    ),
+      overlay(),
+      laser()
+    )),
     help('$help'),
     messages(message('$message.value'))
   )
