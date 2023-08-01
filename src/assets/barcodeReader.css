@@ -1,4 +1,31 @@
-/* [data-type="barcode"] .formkit-barcode-icon {
-  margin-left: -2.5em;
-  user-select: none;
-} */
+@keyframes scanning {
+  25% {
+    translate: 0 35px;
+  }
+  75% {
+    translate: 0 -35px;
+  }
+}
+
+[data-type="barcode"] .formkit-video {
+  &.scanner-container {
+    position: relative;
+  }
+
+  & .overlay-element {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 30, 30, 0.5);
+    clip-path: polygon(0 30%, 100% 30%, 100% 70%, 0 70%);
+  }
+
+  & .laser {
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    height: 1px;
+    animation: scanning 2s infinite;
+  }
+}

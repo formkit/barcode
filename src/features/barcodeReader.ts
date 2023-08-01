@@ -13,10 +13,8 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
   if (!codeReader.isMediaDevicesSuported) return console.warn('Media Stream API is not supported in your device.');
 
   codeReader.hints = getFormatsHint(node.props.formats);
-  console.log(node.props.formats, getFormatsHint(node.props.formats), codeReader.hints);
 
   node.on('prop:formats', ({ payload }) => {
-    console.log(payload, getFormatsHint(payload), codeReader.hints);
     codeReader.hints = getFormatsHint(payload);
   });
 
@@ -24,9 +22,9 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     if (!node.context) return;
 
     node.context.handlers.openCamera = async () => {
-      const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
+      const dialog = document.getElementById(`${node.props.id}-dialog`) as HTMLDialogElement;
 
-      codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res) => {
+      codeReader.decodeFromVideoDevice(null, `${node.props.id}-video`, (res) => {
         if (res) {
           node.input(res.getText());
           dialog.close();
@@ -41,7 +39,7 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     };
 
     node.context.handlers.closeCamera = (event: Event) => {
-      const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
+      const dialog = document.getElementById(`${node.props.id}-dialog`) as HTMLDialogElement;
       codeReader.reset();
       dialog.close();
     };

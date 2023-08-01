@@ -8,6 +8,6 @@ import { createSection } from '@formkit/inputs';
 export const dialog = createSection('dialog', () => ({
   $el: 'dialog',
   attrs: {
-    id: '$id + "_dialog"',
+    id: '$id + "-dialog"',
   }
 }));
