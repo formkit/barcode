@@ -13,8 +13,10 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
   if (!codeReader.isMediaDevicesSuported) return console.warn('Media Stream API is not supported in your device.');
 
   codeReader.hints = getFormatsHint(node.props.formats);
+  console.log(node.props.formats, getFormatsHint(node.props.formats), codeReader.hints);
 
   node.on('prop:formats', ({ payload }) => {
+    console.log(payload, getFormatsHint(payload), codeReader.hints);
     codeReader.hints = getFormatsHint(payload);
   });
 
@@ -24,19 +26,18 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     node.context.handlers.openCamera = async () => {
       const dialog = document.getElementById(`${node.props.id}_dialog`) as HTMLDialogElement;
 
-      codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res, err) => {
-        if (err) {
-          node.setErrors(err.message);
-          dialog.close();
-        }
-
+      codeReader.decodeFromVideoDevice(null, `${node.props.id}_video`, (res) => {
         if (res) {
           node.input(res.getText());
           dialog.close();
         }
+      }).then(() => {
+        dialog.showModal();
+      }).catch(() => {
+        node.setErrors('Camera access denied.');
+        codeReader.reset();
+        dialog.close();
       });
-
-      dialog.showModal();
     };
 
     node.context.handlers.closeCamera = (event: Event) => {
