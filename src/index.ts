@@ -13,6 +13,7 @@ import {
   message,
   defaultIcon,
   $attrs,
+  $if,
 } from '@formkit/inputs';
 import {
   barcodeIcon,
@@ -32,7 +33,8 @@ export const barcode: FormKitTypeDefinition = {
   ],
   features: [
     zxingMultiFormatReader,
-    defaultIcon('close', 'close')
+    defaultIcon('close', 'close'),
+    defaultIcon('spinner', 'spinner')
   ],
   schema: outer(
     wrapper(
@@ -41,17 +43,19 @@ export const barcode: FormKitTypeDefinition = {
         icon('prefix', 'label'),
         prefix(),
         textInput(),
-        barcodeIcon(),
+        $if('$scannerLoading', icon('spinner'), barcodeIcon()),
         suffix(),
         icon('suffix')
       )
     ),
-    dialog(scannerContainer(
-      video(),
-      $attrs({ onClick: '$handlers.closeCamera' }, icon('close')),
-      overlay(),
-      laser()
-    )),
+    dialog(
+      scannerContainer(
+        video(),
+        $attrs({ onClick: '$handlers.closeCamera' }, icon('close')),
+        overlay(),
+        laser()
+      )
+    ),
     help('$help'),
     messages(message('$message.value'))
   )
