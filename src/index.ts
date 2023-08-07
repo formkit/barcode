@@ -25,6 +25,7 @@ import {
 } from './sections';
 import { zxingMultiFormatReader } from './features/barcodeReader';
 
+export { BarcodeFormat } from '@zxing/library';
 export const barcode: FormKitTypeDefinition = {
   type: 'input',
   family: 'text',
