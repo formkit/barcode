@@ -2,6 +2,6 @@
 
 # @formkit/barcode
 
-The official FormKit input barcode plugin.
+The official FormKit barcode input.
 
 Read the input documentation at [FormKit.com](https://formkit.com/plugins/barcode)
