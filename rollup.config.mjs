@@ -19,6 +19,6 @@ export default defineConfig({
     "@formkit/core",
     "@formkit/inputs",
     "@formkit/utils",
-    "@zxing/browser",
+    "@zxing/library",
   ],
 });
