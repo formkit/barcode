@@ -1,13 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@formkit/core': ^0.17.3
-  '@formkit/inputs': ^0.17.3
-  '@formkit/utils': ^0.17.3
+  '@formkit/core': ^0.17.5
+  '@formkit/inputs': ^0.17.5
+  '@formkit/utils': ^0.17.5
   '@rollup/plugin-commonjs': ^25.0.3
   '@rollup/plugin-typescript': ^11.1.2
   '@types/node': ^20.3.2
-  '@zxing/browser': latest
   '@zxing/library': latest
   autoprefixer: ^10.4.14
   postcss: ^8.4.27
@@ -21,7 +20,6 @@ dependencies:
   '@formkit/core': 0.17.5
   '@formkit/inputs': 0.17.5
   '@formkit/utils': 0.17.5
-  '@zxing/browser': 0.1.4_@zxing+library@0.20.0
   '@zxing/library': 0.20.0
 
 devDependencies:
@@ -149,16 +147,6 @@ packages:
   /@types/node/20.4.8:
     resolution: {integrity: sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==}
     dev: true
-
-  /@zxing/browser/0.1.4_@zxing+library@0.20.0:
-    resolution: {integrity: sha512-WYjaav7St4sj/u/Km2llE4NU2Pq3JFIWnczr0tmyCC1KUlp08rV3qpu7iiEB4kOx/CgcCzrSebNnSmFt5B3IFg==}
-    peerDependencies:
-      '@zxing/library': ^0.20.0
-    dependencies:
-      '@zxing/library': 0.20.0
-    optionalDependencies:
-      '@zxing/text-encoding': 0.9.0
-    dev: false
 
   /@zxing/library/0.20.0:
     resolution: {integrity: sha512-6Ev6rcqVjMakZFIDvbUf0dtpPGeZMTfyxYg4HkVWioWeN7cRcnUWT3bU6sdohc82O1nPXcjq6WiGfXX2Pnit6A==}

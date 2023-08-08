@@ -1,5 +1,5 @@
 {
-  "name": "@formkit/input-barcode-reader",
+  "name": "@formkit/barcode",
   "version": "1.0.0",
   "description": "Barcode reader input for FormKit.",
   "type": "module",
@@ -25,7 +25,8 @@
     "url": "https://github.com/formkit/input-barcode.git"
   },
   "contributors": [
-    "Gustavo Fenilli <fenilli@formkit.com>"
+    "Gustavo Fenilli <fenilli@formkit.com>",
+    "Andrew Boyd <andrew@formkit.com>"
   ],
   "license": "MIT",
   "scripts": {
@@ -47,10 +48,9 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@formkit/core": "^0.17.3",
-    "@formkit/inputs": "^0.17.3",
-    "@formkit/utils": "^0.17.3",
-    "@zxing/browser": "latest",
+    "@formkit/core": "^0.17.5",
+    "@formkit/inputs": "^0.17.5",
+    "@formkit/utils": "^0.17.5",
     "@zxing/library": "latest"
   }
 }
