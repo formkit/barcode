@@ -80,7 +80,7 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
           }
         })
         .catch(() => {
-          node.setErrors("Camera access denied.");
+          node.setErrors("Camera access denied or not available.");
           codeReader.reset();
 
           if (dialog) {
