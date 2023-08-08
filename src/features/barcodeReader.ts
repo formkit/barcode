@@ -1,19 +1,17 @@
 import { FormKitNode } from "@formkit/core";
-import { BrowserMultiFormatReader, DecodeHintType } from "@zxing/library";
+import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/library";
 
-const getFormatsHint = (formats: any) =>
-  new Map([
-    [
-      DecodeHintType.POSSIBLE_FORMATS,
-      formats ? formats : ["CODE_128", "QR Code"],
-    ],
-  ]);
+const getFormats = (formats: string[] | null): BarcodeFormat[] | null => {
+  if (!formats) return null;
+  return formats.map(
+    (format) => BarcodeFormat[format as keyof typeof BarcodeFormat]
+  );
+};
 
 export const zxingMultiFormatReader = (node: FormKitNode) => {
   if (node.props.type !== "barcode") return;
 
   const codeReader = new BrowserMultiFormatReader();
-  codeReader.hints = getFormatsHint(node.props.formats);
 
   function closeCamera() {
     const dialog = document.getElementById(
@@ -26,30 +24,35 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
     }
   }
 
-  node.on("prop:formats", ({ payload }) => {
-    codeReader.hints = getFormatsHint(payload);
-  });
-
   node.on("created", () => {
     node.context!.scannerLoading = false;
 
     if (!codeReader.isMediaDevicesSuported) {
+      node.context!.scannerLoading = false;
       node.setErrors("Camera access not supported on your device.");
       return console.warn("Media Stream API is not supported in your device.");
     }
 
     node.context!.handlers.openCamera = async () => {
+      node.clearErrors();
+
       const dialog = document.getElementById(
         `${node.props.id}-dialog`
       ) as HTMLDialogElement;
 
       node.context!.scannerLoading = true;
 
-      // enable continuous autofocus of camera
       codeReader
         .decodeFromVideoDevice(null, `${node.props.id}-video`, (res) => {
           if (res) {
-            node.input(res.getText());
+            const format: BarcodeFormat = res.getBarcodeFormat();
+            const allowedFormats = getFormats(node.props.formats);
+            // set an error if the format is not allowed
+            if (allowedFormats && !allowedFormats.includes(format)) {
+              return;
+            } else {
+              node.input(res.getText());
+            }
             closeCamera();
           }
         })
@@ -73,13 +76,14 @@ export const zxingMultiFormatReader = (node: FormKitNode) => {
 
               track
                 .applyConstraints(constraints as MediaTrackConstraints)
-                .catch((err) =>
-                  console.error("Failed to apply constraints:", err)
-                );
+                .catch(() => {
+                  // do nothing
+                });
             }
           }
         })
         .catch(() => {
+          node.context!.scannerLoading = false;
           node.setErrors("Camera access denied or not available.");
           codeReader.reset();
 
