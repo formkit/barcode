@@ -4,4 +4,4 @@
 
 The official FormKit input barcode plugin.
 
-Read the input documentation at [FormKit.com](https://formkit.com/addons/barcode)
+Read the input documentation at [FormKit.com](https://formkit.com/plugins/barcode)
