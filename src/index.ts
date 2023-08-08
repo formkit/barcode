@@ -1,4 +1,4 @@
-import { FormKitTypeDefinition } from '@formkit/core';
+import { FormKitTypeDefinition } from "@formkit/core";
 import {
   outer,
   wrapper,
@@ -14,49 +14,52 @@ import {
   defaultIcon,
   $attrs,
   $if,
-} from '@formkit/inputs';
+} from "@formkit/inputs";
 import {
   barcodeIcon,
   dialog,
   scannerContainer,
   overlay,
+  overlayDecorators,
   laser,
   video,
-} from './sections';
-import { zxingMultiFormatReader } from './features/barcodeReader';
+} from "./sections";
+import { zxingMultiFormatReader } from "./features/barcodeReader";
 
 export const barcode: FormKitTypeDefinition = {
-  type: 'input',
-  family: 'text',
-  props: [
-    'formats',
-  ],
+  type: "input",
+  family: "text",
+  props: ["formats"],
   features: [
     zxingMultiFormatReader,
-    defaultIcon('close', 'close'),
-    defaultIcon('spinner', 'spinner')
+    defaultIcon("close", "close"),
+    defaultIcon("loader", "spinner"),
   ],
   schema: outer(
     wrapper(
-      label('$label'),
+      label("$label"),
       inner(
-        icon('prefix', 'label'),
+        icon("prefix", "label"),
         prefix(),
         textInput(),
-        $if('$scannerLoading', icon('spinner'), barcodeIcon()),
+
+        // show loader or barcode icon depending on
+        // loading state
+        $if("$scannerLoading", icon("loader")),
+        $if("$scannerLoading === false", barcodeIcon()),
+
         suffix(),
-        icon('suffix')
+        icon("suffix")
       )
     ),
     dialog(
       scannerContainer(
         video(),
-        $attrs({ onClick: '$handlers.closeCamera' }, icon('close')),
-        overlay(),
-        laser()
+        $attrs({ onClick: "$handlers.closeCamera" }, icon("close")),
+        overlay(overlayDecorators(), laser())
       )
     ),
-    help('$help'),
-    messages(message('$message.value'))
-  )
+    help("$help"),
+    messages(message("$message.value"))
+  ),
 };

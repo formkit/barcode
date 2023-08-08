@@ -43,12 +43,14 @@
     "postcss-cli": "^10.1.0",
     "postcss-nesting": "^12.0.0",
     "rollup": "^3.25.3",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@formkit/core": "^0.17.3",
     "@formkit/inputs": "^0.17.3",
     "@formkit/utils": "^0.17.3",
-    "@zxing/library": "^0.20.0"
+    "@zxing/browser": "latest",
+    "@zxing/library": "latest"
   }
 }

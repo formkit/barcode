@@ -1,22 +1,24 @@
-import { defineConfig } from 'rollup';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from "rollup";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
 
 export default defineConfig({
-  input: 'src/index.ts',
+  input: "src/index.ts",
   output: [
     {
-      file: 'dist/index.cjs',
-      format: 'cjs'
+      file: "dist/index.cjs",
+      format: "cjs",
     },
     {
-      file: 'dist/index.mjs',
-      format: 'module'
-    }
+      file: "dist/index.mjs",
+      format: "module",
+    },
   ],
-  plugins: [
-    commonjs(),
-    typescript()
+  plugins: [commonjs(), typescript()],
+  external: [
+    "@formkit/core",
+    "@formkit/inputs",
+    "@formkit/utils",
+    "@zxing/browser",
   ],
-  external: ['@formkit/core', '@formkit/inputs', '@formkit/utils', '@zxing/library'],
 });
