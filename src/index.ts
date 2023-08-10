@@ -57,8 +57,8 @@ export const barcode: FormKitTypeDefinition = {
     ),
     dialog(
       scannerContainer(
-        video(),
         $attrs({ onClick: "$handlers.closeCamera" }, icon("close")),
+        video(),
         overlay(overlayDecorators(), laser())
       )
     ),
