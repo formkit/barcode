@@ -2,7 +2,7 @@
 
 # @formkit/barcode
 
-<p align="center"><img width="770" src="https://cdn.formk.it/web-assets/github-barcode-example.gif" alt="FormKit barcode input"></p>
+<p align="center"><img width="547" src="https://cdn.formk.it/web-assets/github-barcode-example-2.gif" alt="FormKit barcode input"></p>
 
 The official FormKit barcode input.
 
