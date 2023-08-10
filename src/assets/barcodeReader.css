@@ -66,6 +66,7 @@
     right: 0.5rem;
     width: 1.5em;
     height: 1.5em;
+    z-index: 2;
 
     & svg {
       max-height: 1em;
