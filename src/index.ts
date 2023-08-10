@@ -22,6 +22,7 @@ import {
   overlayDecorators,
   laser,
   video,
+  barcodeIconWrapper,
 } from "./sections";
 import { zxingMultiFormatReader } from "./features/barcodeReader";
 
@@ -46,7 +47,7 @@ export const barcode: FormKitTypeDefinition = {
         // show loader or barcode icon depending on
         // loading state
         $if("$scannerLoading", icon("loader")),
-        $if("$scannerLoading === false", icon("barcode")),
+        $if("$scannerLoading === false", barcodeIconWrapper(icon("barcode"))),
 
         suffix(),
         icon("suffix")
