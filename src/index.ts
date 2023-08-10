@@ -16,7 +16,6 @@ import {
   $if,
 } from "@formkit/inputs";
 import {
-  barcodeIcon,
   dialog,
   scannerContainer,
   overlay,
@@ -26,7 +25,7 @@ import {
 } from "./sections";
 import { zxingMultiFormatReader } from "./features/barcodeReader";
 
-export { BarcodeFormat } from '@zxing/library';
+export { BarcodeFormat } from "@zxing/library";
 export const barcode: FormKitTypeDefinition = {
   type: "input",
   family: "text",
@@ -47,7 +46,7 @@ export const barcode: FormKitTypeDefinition = {
         // show loader or barcode icon depending on
         // loading state
         $if("$scannerLoading", icon("loader")),
-        $if("$scannerLoading === false", barcodeIcon()),
+        $if("$scannerLoading === false", icon("barcode")),
 
         suffix(),
         icon("suffix")
