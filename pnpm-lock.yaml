@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@formkit/core': ^0.17.5
-  '@formkit/inputs': ^0.17.5
-  '@formkit/utils': ^0.17.5
+  '@formkit/core': ^1.0.0
+  '@formkit/inputs': ^1.0.0
+  '@formkit/utils': ^1.0.0
   '@rollup/plugin-commonjs': ^25.0.3
   '@rollup/plugin-typescript': ^11.1.2
   '@types/node': ^20.3.2
@@ -17,9 +17,9 @@ specifiers:
   typescript: ^5.1.6
 
 dependencies:
-  '@formkit/core': 0.17.5
-  '@formkit/inputs': 0.17.5
-  '@formkit/utils': 0.17.5
+  '@formkit/core': 1.0.0
+  '@formkit/inputs': 1.0.0
+  '@formkit/utils': 1.0.0
   '@zxing/library': 0.20.0
 
 devDependencies:
@@ -45,21 +45,21 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@formkit/core/0.17.5:
-    resolution: {integrity: sha512-BrtvKOfJ/W7Z2r25LiQC10hy+5TG+22Y57dpQrYdp3bMEziaXHwWxxreX9VgnADUXbwgxxhViEsexINWYsnKQw==}
+  /@formkit/core/1.0.0:
+    resolution: {integrity: sha512-rDFVwNngLcakltasYzmyYDPAYoCoakK+7h4/5V1bE1FQDabhVvJIc5EDH8U80RAKNLGS9xiQ1JK4FHGcZ3K+oQ==}
     dependencies:
-      '@formkit/utils': 0.17.5
+      '@formkit/utils': 1.0.0
     dev: false
 
-  /@formkit/inputs/0.17.5:
-    resolution: {integrity: sha512-cFULXWLM6+rPW9vzoOhnZcu7m8xVfan7tzLY6qBKaAIISmfnq1HV/qSvwR2Ttx4m0CPnUnERjxCgQLd23mfHhQ==}
+  /@formkit/inputs/1.0.0:
+    resolution: {integrity: sha512-fP8kBshH3SD19mei6nAqTq6LTHI4/C1eAP4BYMHBuLwKYMq4SrfPKTCrTNefz+DF3yRaUzUqRg5TgBGgt6wtTw==}
     dependencies:
-      '@formkit/core': 0.17.5
-      '@formkit/utils': 0.17.5
+      '@formkit/core': 1.0.0
+      '@formkit/utils': 1.0.0
     dev: false
 
-  /@formkit/utils/0.17.5:
-    resolution: {integrity: sha512-VhGdmuyXQKB6ceQeQx1pJ/TP+vCUG5+ZiXeKySuFItAjfk7euTwtalDgv1tXrgCtPwANr6KPMC3rPGsoHS9cSQ==}
+  /@formkit/utils/1.0.0:
+    resolution: {integrity: sha512-5T8PbHOajP/eJuoEeLgxA0g25nyVUZKfy2V2mW8idoph+9PT0nZUoIP+KA/PJ2mmexqtuykMT0A5knW8MiXqsw==}
     dev: false
 
   /@jridgewell/sourcemap-codec/1.4.15:
