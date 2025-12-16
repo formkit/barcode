@@ -1,6 +1,7 @@
 {
   "name": "@formkit/barcode",
   "version": "1.0.2",
+  "packageManager": "pnpm@10.14.0",
   "description": "Barcode reader input for FormKit.",
   "type": "module",
   "main": "dist/index.cjs",
@@ -33,13 +34,15 @@
     "build:cleanup": "npx rimraf dist",
     "build:js": "rollup -c",
     "build:css": "postcss ./src/assets/barcodeReader.css --output ./dist/assets/barcodeReader.css --use autoprefixer postcss-nesting",
-    "build": "npm run build:cleanup && npm run build:js && npm run build:css"
+    "build": "npm run build:cleanup && npm run build:js && npm run build:css",
+    "release": "pnpm build && bumpp --push"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/node": "^20.3.2",
     "autoprefixer": "^10.4.14",
+    "bumpp": "^9.9.1",
     "postcss": "^8.4.27",
     "postcss-cli": "^10.1.0",
     "postcss-nesting": "^12.0.0",
