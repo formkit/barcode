@@ -10,6 +10,7 @@ const getFormats = (formats: string[] | null): BarcodeFormat[] | null => {
 
 export const zxingMultiFormatReader = (node: FormKitNode) => {
   if (node.props.type !== "barcode") return;
+  if (typeof window === "undefined") return;
 
   // sets default icon while still allowing user to override it
   node.props.barcodeIcon =
