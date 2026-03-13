@@ -1,3 +1,4 @@
 node_modules
 dist
+.pnpm-store/
 .node_modules_tmp
