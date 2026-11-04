@@ -8,14 +8,14 @@ importers:
 
   .:
     dependencies:
+      '@formkit/inputs':
+        specifier: ^1.0.0 || ^2.0.0
+        version: 2.2.1
       '@zxing/library':
         specifier: ^0.21.3
         version: 0.21.3
     devDependencies:
       '@formkit/core':
-        specifier: ^2.2.1
-        version: 2.2.1
-      '@formkit/inputs':
         specifier: ^2.2.1
         version: 2.2.1
       '@formkit/utils':
