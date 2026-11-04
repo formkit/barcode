@@ -8,19 +8,19 @@ importers:
 
   .:
     dependencies:
-      '@formkit/core':
-        specifier: ^1.0.0
-        version: 1.6.9
-      '@formkit/inputs':
-        specifier: ^1.0.0
-        version: 1.6.9
-      '@formkit/utils':
-        specifier: ^1.0.0
-        version: 1.6.9
       '@zxing/library':
-        specifier: latest
+        specifier: ^0.21.3
         version: 0.21.3
     devDependencies:
+      '@formkit/core':
+        specifier: ^2.2.1
+        version: 2.2.1
+      '@formkit/inputs':
+        specifier: ^2.2.1
+        version: 2.2.1
+      '@formkit/utils':
+        specifier: ^2.2.1
+        version: 2.2.1
       '@rollup/plugin-commonjs':
         specifier: ^25.0.3
         version: 25.0.8(rollup@3.29.5)
@@ -69,14 +69,14 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^6.0.13
 
-  '@formkit/core@1.6.9':
-    resolution: {integrity: sha512-Zb5OkYKMf7Rp1pd4iUMv0TJQvfgl1PdKtRRQoGiTA0XIFLB/7tcRMr1wc5isA2JS+hllfxMTh3RWF8N+64fTMg==}
+  '@formkit/core@2.2.1':
+    resolution: {integrity: sha512-m1s+6scf0CqgkVnID0XKQpi6z2A94P/BNwDwtrHtZsxyiXlicgLLfO1f4K3rOeicNVrnoYmISyK52d0oy39/6w==}
 
-  '@formkit/inputs@1.6.9':
-    resolution: {integrity: sha512-k9gjV1e5F87NxSnu13JtKb30XYt6ndx2KGHZG8Xz0etoP75yJlMaeROHHPvlxdy2gZM6qH7Ex4it51W74Wh2Eg==}
+  '@formkit/inputs@2.2.1':
+    resolution: {integrity: sha512-0P1WXRjMA9K7/GEMsuOzvxV06gA4txP9OgnreLnVDXuYyBTf0RayJsnEWQL3kpERx/yORlqkvBr/Fx0mPoGUVw==}
 
-  '@formkit/utils@1.6.9':
-    resolution: {integrity: sha512-vSFhB/Sm/A+SdwKdBi4WhJcdbePqSYRaB878Ol9HL8roTmmmgQpThvkv6EjLM6aRRP27Il5rS8XtIAIeh8vdTA==}
+  '@formkit/utils@2.2.1':
+    resolution: {integrity: sha512-Er4ZBlw5ai93iSFm2L3pbRaj9USpjjGw8YcrZlO/Kr6HCm58o7MUySfI6SzUQaDhMgs+1mdSx1Vv//F3o3Iltw==}
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -720,16 +720,16 @@ snapshots:
     dependencies:
       postcss-selector-parser: 6.1.2
 
-  '@formkit/core@1.6.9':
+  '@formkit/core@2.2.1':
     dependencies:
-      '@formkit/utils': 1.6.9
+      '@formkit/utils': 2.2.1
 
-  '@formkit/inputs@1.6.9':
+  '@formkit/inputs@2.2.1':
     dependencies:
-      '@formkit/core': 1.6.9
-      '@formkit/utils': 1.6.9
+      '@formkit/core': 2.2.1
+      '@formkit/utils': 2.2.1
 
-  '@formkit/utils@1.6.9': {}
+  '@formkit/utils@2.2.1': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
